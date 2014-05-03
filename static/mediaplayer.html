@@ -2,53 +2,75 @@
 <head>
  	<meta charset="utf-8">
  	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>mediaplayer</title>
+	<title>MediaPlayer</title>
 	<script src="js/angular.min.js"></script>
-	<!--<script src="js/bootstrap.min.js"></script>-->
 	<script src="js/mediaplayer.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="mediaplayer.css">
-	<style type="text/css">
-		.container {
-			padding-left: 5%;
-		}
-
-		audio {
-			width:80%;
-			padding:25px;
-			padding-top: 50px;
-		}
-
-		#filelist {
-			width:90%;
-			border: 1px solid;
-			max-height: 70%;
-			overflow:scroll;
-			overflow-x: hidden;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/mediaplayer.css">
 </head>
 <body ng-controller="MediaPlayerCtrl" class="container">
-	<h1>Media Player</h1>
-	
-	<audio src={{srcfile}} controls autoplay>
-	</audio>
 
-	<div id="filelist">
-		<table class="table table-striped table-hover">
-			<thead>
-				<th>Name</th>
-				<th>Size</th>
-				<th>Duration</th>
-			</thead>
-			<tbody>
-				<tr ng-repeat="file in files" ng-click="play(file)">
-					<td>{{file.name}}</td>
-					<td>{{file.size}}</td>
-					<td>{{file.duration}}</td>
-				</tr>
-			</tbody>
-		</table>
+	<div class="navbar navbar-default">
+		<div class="navbar-header">
+			<a class="navbar-brand">Media Player</a>
+			<p class="navbar-text">a web based media player</p>
+		</div>
+	</div>
+	
+	
+		<audio src={{srcfile}} controls autoplay>
+		</audio>
+
+
+	<div class="row">
+
+		<div id="filelist" class="col-sm-6">
+
+			<ol class="breadcrumb">
+				<li><a href="">path1</a>
+				<li><a href="">path2</a>
+				<li>path3
+			</ol>
+
+			<table class="table table-hover table-condensed">
+				<thead>
+					<th>Name
+					<th>Size
+					<th>Duration
+				</thead>
+				<tbody>
+					<tr ng-repeat="file in files" ng-click="play(file)" class="{{file.selected}}">
+						<td>{{file.name}}
+						<td>{{file.size}}
+						<td>{{file.duration}}
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div id="filelist" class="col-sm-6">
+
+			<ol class="breadcrumb">
+				<li>path1
+				<li>path2
+				<li>path3
+			</ol>
+
+			<table class="table table-hover table-condensed">
+				<thead>
+					<th>Name
+					<th>Size
+					<th>Duration
+				</thead>
+				<tbody>
+					<tr ng-repeat="file in files" ng-click="play(file)" class="file.selected">
+						<td>{{file.name}}
+						<td>{{file.size}}
+						<td>{{file.duration}}
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
