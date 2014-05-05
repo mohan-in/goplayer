@@ -8,7 +8,17 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/mediaplayer.css">
 </head>
-<body ng-controller="MediaPlayerCtrl" class="container">
+<body>
+<div ng-controller="FileCtrl">
+ 			<button id="directory" type="button" class="btn btn-default" onclick="fileupload.click()">
+				<span class="glyphicon glyphicon-folder-open"></span>
+			</button>
+			<input id="fileupload" type='file' ng-click="listfiles($event)" webkitdirectory/>
+			<ul id="fileOutput" ng-repeat="file in files">
+				<li>{{file.name}}
+			</ul>
+</div>
+<div ng-controller="MediaPlayerCtrl" class="container">
 
 	<div class="navbar navbar-default">
 		<div class="navbar-header">
@@ -26,13 +36,13 @@
 
 		<div id="filelist" class="col-sm-6">
 
-			<ol class="breadcrumb">
+			<ol id="path" class="breadcrumb">
 				<li><a href="">path1</a>
 				<li><a href="">path2</a>
 				<li>path3
 			</ol>
 
-			<table class="table table-hover table-condensed">
+			<table class="table table-condensed">
 				<thead>
 					<th>Name
 					<th>Size
@@ -71,6 +81,7 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

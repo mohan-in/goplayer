@@ -11,8 +11,20 @@ table {
 	font-size: 13px;
 }
 
+table:hover {
+	cursor: pointer;
+}  
+
 #filelist {
 	overflow:scroll;
 	overflow-x: hidden;
 	overflow-y: hidden;
+}
+
+#directory, #path {
+	display:inline;
+}
+
+#fileupload {
+	display: none;
 }
