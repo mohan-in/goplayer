@@ -1,3 +1,5 @@
+var app=angular.module('mediaplayer',[]);
+
 function MediaPlayerCtrl($scope) {
 	$scope.files = [
 		{"name":"song1", "size":"5 MB", "duration":"05:00:00", "src":"path/file", "type":"audio/mpeg"},
@@ -27,12 +29,4 @@ function MediaPlayerCtrl($scope) {
 		};
 		file.selected = "bg-primary";
 	};
-};
-
-function FileCtrl($scope) {
-	$scope.files = [];
-
-	$scope.listfiles = function(e) {
-	    $scope.files = e.target.files;
-	}
 };

@@ -20,11 +20,3 @@ table:hover {
 	overflow-x: hidden;
 	overflow-y: hidden;
 }
-
-#directory, #path {
-	display:inline;
-}
-
-#fileupload {
-	display: none;
-}

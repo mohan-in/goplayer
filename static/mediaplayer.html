@@ -1,4 +1,4 @@
-<html ng-app>
+<html ng-app="mediaplayer">
 <head>
  	<meta charset="utf-8">
  	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,79 +9,70 @@
 	<link rel="stylesheet" type="text/css" href="css/mediaplayer.css">
 </head>
 <body>
-<div ng-controller="FileCtrl">
- 			<button id="directory" type="button" class="btn btn-default" onclick="fileupload.click()">
-				<span class="glyphicon glyphicon-folder-open"></span>
-			</button>
-			<input id="fileupload" type='file' ng-click="listfiles($event)" webkitdirectory/>
-			<ul id="fileOutput" ng-repeat="file in files">
-				<li>{{file.name}}
-			</ul>
-</div>
-<div ng-controller="MediaPlayerCtrl" class="container">
+	<div ng-controller="MediaPlayerCtrl" class="container">
 
-	<div class="navbar navbar-default">
-		<div class="navbar-header">
-			<a class="navbar-brand">Media Player</a>
-			<p class="navbar-text">a web based media player</p>
+		<div class="navbar navbar-default">
+			<div class="navbar-header">
+				<a class="navbar-brand">Media Player</a>
+				<p class="navbar-text">a web based media player</p>
+			</div>
 		</div>
-	</div>
-	
-	
+		
+		
 		<audio src={{srcfile}} controls autoplay>
 		</audio>
 
 
-	<div class="row">
+		<div class="row">
 
-		<div id="filelist" class="col-sm-6">
+			<div id="filelist" class="col-sm-6">
 
-			<ol id="path" class="breadcrumb">
-				<li><a href="">path1</a>
-				<li><a href="">path2</a>
-				<li>path3
-			</ol>
+				<ol class="breadcrumb">
+					<li><a href="">path1</a>
+					<li><a href="">path2</a>
+					<li>path3
+				</ol>
 
-			<table class="table table-condensed">
-				<thead>
-					<th>Name
-					<th>Size
-					<th>Duration
-				</thead>
-				<tbody>
-					<tr ng-repeat="file in files" ng-click="play(file)" class="{{file.selected}}">
-						<td>{{file.name}}
-						<td>{{file.size}}
-						<td>{{file.duration}}
-					</tr>
-				</tbody>
-			</table>
+				<table class="table table-condensed">
+					<thead>
+						<th>Name
+						<th>Size
+						<th>Duration
+					</thead>
+					<tbody>
+						<tr ng-repeat="file in files" ng-click="play(file)" class="{{file.selected}}">
+							<td>{{file.name}}
+							<td>{{file.size}}
+							<td>{{file.duration}}
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div id="filelist" class="col-sm-6">
+
+				<ol class="breadcrumb">
+					<li>path1
+					<li>path2
+					<li>path3
+				</ol>
+
+				<table class="table table-hover table-condensed">
+					<thead>
+						<th>Name
+						<th>Size
+						<th>Duration
+					</thead>
+					<tbody>
+						<tr ng-repeat="file in files" ng-click="play(file)" class="file.selected">
+							<td>{{file.name}}
+							<td>{{file.size}}
+							<td>{{file.duration}}
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
-
-		<div id="filelist" class="col-sm-6">
-
-			<ol class="breadcrumb">
-				<li>path1
-				<li>path2
-				<li>path3
-			</ol>
-
-			<table class="table table-hover table-condensed">
-				<thead>
-					<th>Name
-					<th>Size
-					<th>Duration
-				</thead>
-				<tbody>
-					<tr ng-repeat="file in files" ng-click="play(file)" class="file.selected">
-						<td>{{file.name}}
-						<td>{{file.size}}
-						<td>{{file.duration}}
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
 	</div>
 </body>
 </html>
