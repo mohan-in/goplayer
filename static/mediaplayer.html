@@ -40,10 +40,8 @@
 						<th>Duration
 					</thead>
 					<tbody>
-						<tr ng-repeat="file in files" ng-click="play(file)" class="{{file.selected}}">
-							<td>{{file.name}}
-							<td>{{file.size}}
-							<td>{{file.duration}}
+						<tr ng-repeat="file in files" ng-click="play(file)">
+							<td>{{file.Name}}
 						</tr>
 					</tbody>
 				</table>
