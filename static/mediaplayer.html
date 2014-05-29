@@ -3,10 +3,10 @@
  	<meta charset="utf-8">
  	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>MediaPlayer</title>
-	<script src="js/angular.min.js"></script>
+	<script src="js/angular.js"></script>
 	<script src="js/mediaplayer.js"></script>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/mediaplayer.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/mediaplayer.css">
 </head>
 <body>
 	<div ng-controller="MediaPlayerCtrl" class="container">
@@ -19,7 +19,7 @@
 		</div>
 		
 		
-		<audio src={{srcfile}} controls autoplay>
+		<audio ng-src={{srcfile}} controls autoplay>
 		</audio>
 
 
@@ -33,7 +33,7 @@
 					<li>path3
 				</ol>
 
-				<table class="table table-condensed">
+				<table class="table table-condensed table-hover">
 					<thead>
 						<th>Name
 						<th>Size
@@ -42,6 +42,8 @@
 					<tbody>
 						<tr ng-repeat="file in files" ng-click="play(file)">
 							<td>{{file.Name}}
+							<td>
+							<td>
 						</tr>
 					</tbody>
 				</table>
