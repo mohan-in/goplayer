@@ -21,7 +21,7 @@ func init() {
 	workspaces[0] = "D:\\music"
 }
 
-func handler(rw http.ResponseWriter, r *http.Request) {
+func directoryHandler(rw http.ResponseWriter, r *http.Request) {
 
 	path := ""
 	if path = r.URL.Query().Get("path"); path == "" {
@@ -46,15 +46,17 @@ func handler(rw http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func fileServer(rw http.ResponseWriter, r *http.Request) {
+func mediaFileHandler(rw http.ResponseWriter, r *http.Request) {
 	http.ServeFile(rw, r, r.URL.Query().Get("file"))
 }
 
+func staticFilesHandler(rw http.ResponseWriter, r *http.Request) {
+	http.ServeFile(rw, r, r.URL.Path[1:])
+}
+
 func main() {
-	http.HandleFunc("/", handler)
-	http.HandleFunc("/static/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, r.URL.Path[1:])
-	})
-	http.HandleFunc("/mediafile/", fileServer)
+	http.HandleFunc("/", directoryHandler)
+	http.HandleFunc("/static/", staticFilesHandler)
+	http.HandleFunc("/media/", mediaFileHandler)
 	http.ListenAndServe("localhost:9091", nil)
 }
