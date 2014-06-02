@@ -16,6 +16,7 @@ function MediaPlayerCtrl($scope, $http) {
 			});
 		} else {
 			$scope.srcfile = "/media/?file=" + file.AbsPath;
+			file.isPlaying = true;
 		}
 		
 	};

@@ -3,20 +3,28 @@
 }
 
 audio {
-	width:100%;
-	padding:40px;
+	width:80%;
+	padding-top: 45px;
 }
 
 table {
-	font-size: 13px;
+	font-size: 12px;
 }
 
 table:hover {
 	cursor: pointer;
 }  
 
-#filelist {
-	overflow:scroll;
-	overflow-x: hidden;
-	overflow-y: hidden;
+.media-icon {
+	width: 25px;
+}
+
+.navbar-brand {
+	padding-top: 20px;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.row {
+	padding-top: 80px;
 }

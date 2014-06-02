@@ -3,22 +3,15 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"msvr"
 	"net/http"
-	"path/filepath"
 )
-
-type FileList struct {
-	Name    string
-	IsDir   bool
-	AbsPath string
-}
 
 var workspaces []string
 
 func init() {
 	workspaces = make([]string, 10)
-	workspaces[0] = "D:\\music"
+	workspaces[0] = "D:\\"
 }
 
 func directoryHandler(rw http.ResponseWriter, r *http.Request) {
@@ -28,20 +21,13 @@ func directoryHandler(rw http.ResponseWriter, r *http.Request) {
 		path = workspaces[0]
 	}
 
-	files, err := ioutil.ReadDir(path)
+	files, err := msvr.Get(path)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	var fileList = make([]FileList, len(files))
-	for i, file := range files {
-		fileList[i].Name = file.Name()
-		fileList[i].IsDir = file.IsDir()
-		fileList[i].AbsPath = filepath.Join(path, file.Name())
-	}
-
 	enc := json.NewEncoder(rw)
-	if err := enc.Encode(fileList); err != nil {
+	if err := enc.Encode(files); err != nil {
 		fmt.Println(err)
 	}
 }

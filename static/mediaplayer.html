@@ -9,20 +9,16 @@
 	<link rel="stylesheet" href="css/mediaplayer.css">
 </head>
 <body>
-	<div ng-controller="MediaPlayerCtrl" class="container">
+	<div ng-controller="MediaPlayerCtrl" class="cont">
 
-		<div class="navbar navbar-default">
-			<div class="navbar-header">
-				<a class="navbar-brand">Media Player</a>
-				<p class="navbar-text">a web based media player</p>
+		<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<p class="navbar-brand">GoPlayer</p>
+				<audio id="audioctrl" ng-src={{srcfile}} controls autoplay></audio>
 			</div>
 		</div>
 		
 		
-		<audio ng-src={{srcfile}} controls autoplay>
-		</audio>
-
-
 		<div class="row">
 
 			<div id="filelist" class="col-sm-6">
@@ -35,14 +31,16 @@
 
 				<table class="table table-condensed table-hover">
 					<thead>
+						<th>
 						<th>Name
-						<th>Size
+						<th>Size (MB)
 						<th>Duration
 					</thead>
 					<tbody>
 						<tr ng-repeat="file in files" ng-click="play(file)">
+							<td class="media-icon"><span class="glyphicon glyphicon-play" ng-show=file.isPlaying></span>
 							<td>{{file.Name}}
-							<td>
+							<td>{{file.Size / (1024*1024) | number : 2}}
 							<td>
 						</tr>
 					</tbody>
