@@ -2,22 +2,31 @@ var app=angular.module('mediaplayer',[]);
 
 function MediaPlayerCtrl($scope, $http) {
 
-	$http.get("/").success(function(data) {
-    		$scope.files = data;
-    });
-
 	$scope.srcfile = "";
+	$scope.breadcrumb = [{Name: "/...", AbsPath: ""}];
+
+    HttpGet("/");
+
 
 	$scope.play = function(file) {
-		console.log("file selected is " + file.AbsPath);
 		if(file.IsDir === true) {
-			$http.get("/?path="+file.AbsPath).success(function(data) {
-				$scope.files = data;
-			});
+			$scope.breadcrumb.push({Name: file.Name, AbsPath: file.AbsPath});
+			HttpGet("/?path=" + file.AbsPath);
 		} else {
 			$scope.srcfile = "/media/?file=" + file.AbsPath;
 			file.isPlaying = true;
-		}
-		
+		}	
 	};
+
+	$scope.gotoCrumb = function(i, p) {
+		console.log(i);
+		$scope.breadcrumb = $scope.breadcrumb.slice(0, i + 1);
+		HttpGet("/?path=" + p);
+	};
+
+	function HttpGet(path) {
+		$http.get(path).success(function(data) {
+			$scope.files = data;
+		});
+	}
 };
