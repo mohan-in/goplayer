@@ -1,6 +1,6 @@
 var app=angular.module('mediaplayer',[]);
 
-function MediaPlayerCtrl($scope, $http) {
+app.controller("FileListCtrl", function ($scope, $http, $rootScope) {
 
 	$scope.srcfile = "";
 	$scope.breadcrumb = [{Name: "/...", AbsPath: ""}];
@@ -13,13 +13,21 @@ function MediaPlayerCtrl($scope, $http) {
 			$scope.breadcrumb.push({Name: file.Name, AbsPath: file.AbsPath});
 			HttpGet("/?path=" + file.AbsPath);
 		} else {
-			$scope.srcfile = "/media/?file=" + file.AbsPath;
+			var ext = file.Name.substr(file.Name.length - 3);
+			if(ext.toLowerCase() === "mp3") {
+				$rootScope.audioSrc = "/media/?file=" + file.AbsPath;
+				$rootScope.isPlayingAudio = true;
+				$rootScope.isPlayingVideo = false;
+			} else if (ext.toLowerCase() === "mp4") {
+				$rootScope.videoSrc = "/media/?file=" + file.AbsPath;
+				$rootScope.isPlayingAudio = false;
+				$rootScope.isPlayingVideo = true;
+			}
 			file.isPlaying = true;
 		}	
 	};
 
 	$scope.gotoCrumb = function(i, p) {
-		console.log(i);
 		$scope.breadcrumb = $scope.breadcrumb.slice(0, i + 1);
 		HttpGet("/?path=" + p);
 	};
@@ -29,4 +37,13 @@ function MediaPlayerCtrl($scope, $http) {
 			$scope.files = data;
 		});
 	}
-};
+});
+
+app.directive("filelist", function() {
+	return {
+		scope: true,
+		restrict: 'E',
+      	replace: 'true',
+    	templateUrl: './filelist.html'
+    };
+});
