@@ -2,23 +2,23 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"msvr"
 	"net/http"
 )
 
-var workspaces []string
+var root string
 
 func init() {
-	workspaces = make([]string, 10)
-	workspaces[0] = "D:\\"
+	flag.StringVar(&root, "root", "D:\\", "directory listed in the player when the application starts")
 }
 
 func directoryHandler(rw http.ResponseWriter, r *http.Request) {
 
-	path := ""
+	var path string
 	if path = r.URL.Query().Get("path"); path == "" {
-		path = workspaces[0]
+		path = root
 	}
 
 	files, err := msvr.Get(path)
@@ -41,6 +41,7 @@ func staticFilesHandler(rw http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	flag.Parse()
 	http.HandleFunc("/", directoryHandler)
 	http.HandleFunc("/static/", staticFilesHandler)
 	http.HandleFunc("/media/", mediaFileHandler)
