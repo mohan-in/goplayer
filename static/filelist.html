@@ -1,23 +1,26 @@
-	<div id="filelist" class="col-sm-6">
-		<ol class="breadcrumb">
-			<li ng-repeat="crumb in breadcrumb" ng-click="gotoCrumb($index, crumb.AbsPath)">
-				<a href=# >{{crumb.Name}}</a>
-			</li>
-		</ol>
-		<table class="table table-condensed table-hover">
-			<thead>
-				<th>
-				<th>Name
-				<th>Size (MB)
-				<th>Duration
-			</thead>
-			<tbody>
-				<tr ng-repeat="file in files" ng-click="play(file)">
-					<td class="media-icon"><span class="glyphicon glyphicon-play" ng-show=file.isPlaying></span>
-					<td>{{file.Name}}
-					<td>{{file.Size / (1024*1024) | number : 2}}
-					<td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+<div>
+	<style>
+
+	</style>
+	<ol class="breadcrumb">
+		<li ng-repeat="crumb in breadcrumb" ng-click="gotoCrumb($index, crumb.AbsPath)">
+			<a href=# >{{crumb.Name}}</a>
+		</li>
+	</ol>
+	<table class="table table-condensed table-hover">
+		<thead>
+			<th>
+			<th>Name
+			<th>Size (MB)
+			<th>Duration
+		</thead>
+		<tbody>
+			<tr ng-repeat="file in files" ng-click="play(file)">
+				<td class="media-icon"><span class="glyphicon glyphicon-play" ng-show=file.isPlaying></span>
+				<td>{{file.Name}}
+				<td>{{file.Size / (1024*1024) | number : 2}}
+				<td>
+			</tr>
+		</tbody>
+	</table>
+</div>

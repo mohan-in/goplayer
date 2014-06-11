@@ -7,7 +7,6 @@ app.controller("FileListCtrl", function ($scope, $http, $rootScope) {
 
     HttpGet("/");
 
-
 	$scope.play = function(file) {
 		if(file.IsDir === true) {
 			$scope.breadcrumb.push({Name: file.Name, AbsPath: file.AbsPath});

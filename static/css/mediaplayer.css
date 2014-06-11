@@ -26,5 +26,10 @@ table:hover {
 }
 
 .row {
-	padding-top: 80px;
+	padding-top: 50px;
+}
+
+.column {
+	display: inline-block;
+	width: 49%;
 }
