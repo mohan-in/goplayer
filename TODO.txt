@@ -1,0 +1,9 @@
+make msvr send id3 info for audio files
+make id3 info viewable in browser like marquee; halt on hover
+make video play in modal window
+create css icon for goplayer
+remove bootstrap and use own style
+create own audio control
+
+2014/06/12
+made msvr send only audio or video file

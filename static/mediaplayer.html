@@ -12,15 +12,17 @@
 	<div  class="cont">
 
 		<div class="navbar navbar-default navbar-fixed-top">
-			<p class="navbar-brand">GoPlayer</p>
+			<div class="container">
+			<div class="navbar-brand"><span class="glyphicon glyphicon-music"></span>  GoPlayer</div>
 			<audio id="audioctrl" ng-src={{audioSrc}} controls autoplay ng-show=isPlayingAudio></audio>
+			</div>
 		</div>
 		
 		<video id="videoctrl" ng-src={{videoSrc}} controls autoplay ng-show=isPlayingVideo></video>
 		
 		<div class="row">
-				<filelist class="column" ng-controller="FileListCtrl"></filelist>
-				<filelist class="column" ng-controller="FileListCtrl"></filelist>
+			<filelist class="column" ng-controller="FileListCtrl"></filelist>
+			<filelist class="column" ng-controller="FileListCtrl"></filelist>
 		</div>
 
 	</div>

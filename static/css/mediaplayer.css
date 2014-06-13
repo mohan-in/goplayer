@@ -4,7 +4,7 @@
 
 audio {
 	width:80%;
-	padding-top: 45px;
+	padding-top: 40px;
 }
 
 table {
@@ -19,17 +19,13 @@ table:hover {
 	width: 25px;
 }
 
-.navbar-brand {
-	padding-top: 20px;
-	font-size: 24px;
-	font-weight: bold;
-}
-
 .row {
 	padding-top: 50px;
+	margin: 0 auto;
 }
 
 .column {
 	display: inline-block;
+	vertical-align: top;
 	width: 49%;
 }

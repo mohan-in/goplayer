@@ -1,7 +1,4 @@
 <div>
-	<style>
-
-	</style>
 	<ol class="breadcrumb">
 		<li ng-repeat="crumb in breadcrumb" ng-click="gotoCrumb($index, crumb.AbsPath)">
 			<a href=# >{{crumb.Name}}</a>
@@ -23,4 +20,9 @@
 			</tr>
 		</tbody>
 	</table>
+	<ol class="breadcrumb">
+		<li ng-repeat="crumb in breadcrumb" ng-click="gotoCrumb($index, crumb.AbsPath)">
+			<a href=# >{{crumb.Name}}</a>
+		</li>
+	</ol>
 </div>
