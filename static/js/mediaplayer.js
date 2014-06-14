@@ -12,12 +12,11 @@ app.controller("FileListCtrl", function ($scope, $http, $rootScope) {
 			$scope.breadcrumb.push({Name: file.Name, AbsPath: file.AbsPath});
 			HttpGet("/?path=" + file.AbsPath);
 		} else {
-			var ext = file.Name.substr(file.Name.length - 3);
-			if(ext.toLowerCase() === "mp3") {
+			if (file.IsAudio) {
 				$rootScope.audioSrc = "/media/?file=" + file.AbsPath;
 				$rootScope.isPlayingAudio = true;
 				$rootScope.isPlayingVideo = false;
-			} else if (ext.toLowerCase() === "mp4") {
+			} else if (file.IsVideo) {
 				$rootScope.videoSrc = "/media/?file=" + file.AbsPath;
 				$rootScope.isPlayingAudio = false;
 				$rootScope.isPlayingVideo = true;
