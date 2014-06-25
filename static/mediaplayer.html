@@ -5,6 +5,7 @@
 	<title>MediaPlayer</title>
 	<script src="js/angular.js"></script>
 	<script src="js/mediaplayer.js"></script>
+	<script src="js/ui-bootstrap-tpls-0.11.0.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/mediaplayer.css">
 </head>
@@ -20,9 +21,9 @@
 
 		<video id="videoctrl" ng-src={{videoSrc}} controls autoplay ng-show=isPlayingVideo></video>
 		
-		<div class="row">
-			<filelist class="column" ng-controller="FileListCtrl"></filelist>
-			<filelist class="column" ng-controller="FileListCtrl"></filelist>
+		<div class="lists">
+			<filelist class="list" ng-controller="FileListCtrl"></filelist>
+			<filelist class="list" ng-controller="FileListCtrl"></filelist>
 		</div>
 
 	</div>

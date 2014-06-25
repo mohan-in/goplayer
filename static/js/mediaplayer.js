@@ -1,4 +1,4 @@
-var app=angular.module('mediaplayer',[]);
+var app=angular.module('mediaplayer',['ui.bootstrap']);
 
 app.controller("FileListCtrl", function ($scope, $http, $rootScope) {
 
@@ -6,7 +6,7 @@ app.controller("FileListCtrl", function ($scope, $http, $rootScope) {
 	$scope.breadcrumb = [{Name: "/...", AbsPath: ""}];
 
     HttpGet("/");
-
+    ishover=false;
 	$scope.play = function(file) {
 		if(file.IsDir === true) {
 			$scope.breadcrumb.push({Name: file.Name, AbsPath: file.AbsPath});
@@ -45,3 +45,4 @@ app.directive("filelist", function() {
     	templateUrl: './filelist.html'
     };
 });
+

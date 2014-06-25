@@ -7,25 +7,27 @@ audio {
 	padding-top: 40px;
 }
 
-table {
-	font-size: 12px;
-}
-
-table:hover {
-	cursor: pointer;
-}  
-
-.media-icon {
+#icon {
 	width: 25px;
 }
 
-.row {
+.lists {
 	padding-top: 50px;
 	margin: 0 auto;
 }
 
-.column {
+.list {
 	display: inline-block;
 	vertical-align: top;
 	width: 49%;
 }
+
+#file {
+    position:relative;
+    margin: 8px;
+}
+
+#file:hover {
+	cursor: pointer;
+}
+
