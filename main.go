@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"msvr"
+	"github/gocode/msvr"
 	"net/http"
 )
 
