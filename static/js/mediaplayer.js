@@ -12,15 +12,10 @@ app.controller("FileListCtrl", function ($scope, $http, $rootScope) {
 			$scope.breadcrumb.push({Name: file.Name, AbsPath: file.AbsPath});
 			HttpGet("/?path=" + file.AbsPath);
 		} else {
-			if (file.IsAudio) {
-				$rootScope.audioSrc = "/media/?file=" + file.AbsPath;
-				$rootScope.isPlayingAudio = true;
-				$rootScope.isPlayingVideo = false;
-			} else if (file.IsVideo) {
-				$rootScope.videoSrc = "/media/?file=" + file.AbsPath;
-				$rootScope.isPlayingAudio = false;
-				$rootScope.isPlayingVideo = true;
-			}
+			$rootScope.audioSrc = "/media/?file=" + file.AbsPath;
+			for (var i = $scope.files.length - 1; i >= 0; i--) {
+				$scope.files[i].isPlaying = false;
+			};
 			file.isPlaying = true;
 		}	
 	};
@@ -31,7 +26,7 @@ app.controller("FileListCtrl", function ($scope, $http, $rootScope) {
 	};
 
 	function HttpGet(path) {
-		$http.get(path).success(function(data) {
+		$http.get(path).success(function(data) {	
 			$scope.files = data;
 		});
 	}

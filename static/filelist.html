@@ -4,11 +4,11 @@
 			<a href=# >{{crumb.Name}}</a>
 		</li>
 	</ol>
-	<div class="container-fluid">
+	<div class="container-fluid" id="col">
 		<div id="file" 
 			class="row" 
 			ng-repeat="file in files" 
-			ng-click="play(file)"\
+			ng-click="play(file)"
 			tooltip-placement="bottom"
 			tooltip={{file.Album}}{{file.Artist}}{{file.ID3Name}}{{file.Length}}>
 				<div class="col-md-8">

@@ -24,10 +24,19 @@ audio {
 
 #file {
     position:relative;
-    margin: 8px;
+    margin:0px;
+    padding: 5px;
+    background-color: transparent;
+    vertical-align: top;
+    border-bottom: 2px solid #ddd;
+	font-size: 13px;
 }
 
 #file:hover {
 	cursor: pointer;
+	background-color: #d9edf7;
 }
 
+#col {
+	margin-bottom: 15px;
+}
