@@ -11,7 +11,7 @@ import (
 var root string
 
 func init() {
-	flag.StringVar(&root, "root", "D:\\", "directory listed in the player when the application starts")
+	flag.StringVar(&root, "root", "/", "directory listed in the player when the application starts")
 }
 
 func directoryHandler(rw http.ResponseWriter, r *http.Request) {
@@ -32,6 +32,10 @@ func directoryHandler(rw http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func homeHandler(rw http.ResponseWriter, r *http.Request) {
+	http.ServeFile(rw, r, "static/mediaplayer.html")
+}
+
 func mediaFileHandler(rw http.ResponseWriter, r *http.Request) {
 	http.ServeFile(rw, r, r.URL.Query().Get("file"))
 }
@@ -42,7 +46,8 @@ func staticFilesHandler(rw http.ResponseWriter, r *http.Request) {
 
 func main() {
 	flag.Parse()
-	http.HandleFunc("/", directoryHandler)
+	http.HandleFunc("/", homeHandler)
+	http.HandleFunc("/dir", directoryHandler)
 	http.HandleFunc("/static/", staticFilesHandler)
 	http.HandleFunc("/media/", mediaFileHandler)
 	http.ListenAndServe("localhost:9091", nil)
