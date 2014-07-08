@@ -1,8 +1,6 @@
-var app=angular.module('mediaplayer',['ui.bootstrap']);
+angular.module('mediaplayer',['ui.bootstrap'])
 
-app.c
-
-app.directive("filelist", function() {
+.directive("filelist", function() {
 	return {
 		scope: true,
 		restrict: 'E',
