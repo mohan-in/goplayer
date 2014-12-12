@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/gocode/msvr"
 	"net/http"
 )
 
@@ -21,7 +20,7 @@ func directoryHandler(rw http.ResponseWriter, r *http.Request) {
 		path = root
 	}
 
-	files, err := msvr.Get(path)
+	files, err := getFiles(path)
 	if err != nil {
 		fmt.Println(err)
 	}
