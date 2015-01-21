@@ -37,8 +37,8 @@ func getFiles(path string) ([]MediaFile, error) {
 			if err != nil {
 				return nil, err
 			}
-			id, err := id3.Read(fd)
-			if err != nil {
+			id := id3.Read(fd)
+			if id== nil {
 				id = &id3.File{}
 			}
 			f = MediaFile{
