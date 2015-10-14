@@ -7,7 +7,6 @@ angular.module('mediaplayer',['ui.bootstrap'])
       	replace: 'true',
     	templateUrl: 'static/filelist.html',
     	controller: function ($scope, $http, $rootScope) {
-			$scope.srcfile = "";
 			$scope.breadcrumb = [{Name: "/...", AbsPath: ""}];
 
 		    HttpGet("/dir");
@@ -18,6 +17,7 @@ angular.module('mediaplayer',['ui.bootstrap'])
 					HttpGet("/dir?path=" + file.AbsPath);
 				} else if(file.IsAudio) {
 					$rootScope.audioSrc = "/media/?file=" + file.AbsPath;
+					$rootScope.audiosrcName = file.Name;
 					for (var i = $scope.files.length - 1; i >= 0; i--) {
 						$scope.files[i].isPlaying = false;
 					};

@@ -5,13 +5,16 @@
 	<title>MediaPlayer</title>
 	<link rel="stylesheet" href="static/css/bootstrap.css">
 	<link rel="stylesheet" href="static/css/mediaplayer.css">
+
+	<link rel="import" href="/static/bower_components/paper-audio-player/paper-audio-player.html">
 </head>
 <body>
 	<div  class="cont">
 		<div class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 			<div class="navbar-brand"><span class="glyphicon glyphicon-music"></span>  GoPlayer</div>
-			<audio id="audioctrl" ng-src={{audioSrc}} controls autoplay></audio>
+
+			<paper-audio-player ng-src={{audioSrc}} title={{audiosrcName}} auto-play color="90D9D6"></paper-audio-player>
 			</div>
 		</div>
 		<div class="lists">
