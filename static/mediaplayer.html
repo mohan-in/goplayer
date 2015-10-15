@@ -12,11 +12,10 @@
 	<div  class="cont">
 		<div class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
-			<div class="navbar-brand"><span class="glyphicon glyphicon-music"></span>  GoPlayer</div>
-
-			<paper-audio-player ng-src={{audioSrc}} title={{audiosrcName}} auto-play color="90D9D6"></paper-audio-player>
+				<div class="navbar-brand"><span class="glyphicon glyphicon-music"></span>  GoPlayer</div>
 			</div>
 		</div>
+		<paper-audio-player id="player" src={{audioSrc}} title={{audiosrcName}} auto-play="true" color="F05C38"></paper-audio-player>
 		<div class="lists">
 			<filelist class="list"></filelist>
 			<filelist class="list"></filelist>

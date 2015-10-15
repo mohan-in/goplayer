@@ -192,7 +192,11 @@ Example:
       // Define public properties
 
       properties: {
-        src: String,
+        src: {
+          type: String,
+          observer: '_srcChanged'
+        },
+        autoPlay: Boolean,
         title: {
           type: String,
           value: 'Click to play this audio file'
@@ -251,8 +255,15 @@ Example:
         progress = player.$.progress;
         progress.max = 0;
         progress.value = 0;
+
+        if(player.autoPlay) {
+          player.$.audio.play();
+        }
       },
 
+      _srcChanged: function() {
+        this.ready();
+      },
 
       // Play/Pause controls
 
@@ -329,7 +340,8 @@ Example:
       onError: function() {
         var player = this;
         player.classList.add('cantplay');
-        player.title = 'Sorry, can\'t play track: ' + player.title;
+        //player.title = 'Sorry, can\'t play track: ' + player.title;
+        player.title = "Select an audio file";
         player.icon = 'av:not-interested';
       },
 
