@@ -49,5 +49,5 @@ func main() {
 	http.HandleFunc("/dir", directoryHandler)
 	http.HandleFunc("/static/", staticFilesHandler)
 	http.HandleFunc("/media/", mediaFileHandler)
-	http.ListenAndServe("localhost:9090", nil)
+	http.ListenAndServe(":9090", nil)
 }

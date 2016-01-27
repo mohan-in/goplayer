@@ -1,25 +1,16 @@
-.cont {
-	padding: 20px;
-}
-
 #player {
     margin-top: 50;
-    margin-bottom: -30;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #icon {
 	width: 25px;
 }
 
-.lists {
-	padding-top: 50px;
-	margin: 0 auto;
-}
-
 .list {
-	display: inline-block;
-	vertical-align: top;
-	width: 49%;
+	width:75%;
+	margin: 0 auto;
 }
 
 #file {

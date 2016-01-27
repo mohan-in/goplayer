@@ -9,17 +9,14 @@
 	<link rel="import" href="/static/bower_components/paper-audio-player/paper-audio-player.html">
 </head>
 <body>
-	<div  class="cont">
+	<div  class="container">
 		<div class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-brand"><span class="glyphicon glyphicon-music"></span>  GoPlayer</div>
 			</div>
 		</div>
 		<paper-audio-player id="player" src={{audioSrc}} title={{audiosrcName}} auto-play="true" color="F05C38"></paper-audio-player>
-		<div class="lists">
-			<filelist class="list"></filelist>
-			<filelist class="list"></filelist>
-		</div>
+		<filelist class="list"></filelist>
 	</div>
 	<script src="static/js/angular.js"></script>
 	<script src="static/js/ui-bootstrap-tpls-0.11.0.js"></script>
